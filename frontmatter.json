@@ -1,0 +1,309 @@
+{
+  "$schema": "https://frontmatter.codes/frontmatter.schema.json",
+  "frontMatter.taxonomy.contentTypes": [
+    {
+      "name": "default",
+      "pageBundle": false,
+      "previewPath": null,
+      "fields": [
+        {
+          "title": "Title",
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "title": "Description",
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "title": "Publishing date",
+          "name": "date",
+          "type": "datetime",
+          "default": "{{now}}",
+          "isPublishDate": true
+        },
+        {
+          "title": "Content preview",
+          "name": "preview",
+          "type": "image"
+        },
+        {
+          "title": "Is in draft",
+          "name": "draft",
+          "type": "draft"
+        },
+        {
+          "title": "Tags",
+          "name": "tags",
+          "type": "tags"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
+        }
+      ]
+    }
+  ],
+  "frontMatter.framework.id": "hugo",
+  "frontMatter.content.publicFolder": "static",
+  "frontMatter.taxonomy.tags": [
+    "HTML",
+    "Markdown",
+    "configuration",
+    "content",
+    "emoji",
+    "installation",
+    "shortcodes"
+  ],
+  "frontMatter.taxonomy.categories": [
+    "Markdown",
+    "documentation"
+  ],
+  "frontMatter.content.snippets": {
+    "Start New Post": {
+      "description": "This example will help start a new post",
+      "body": [
+        "---",
+        "weight: 4",
+        "title: Theme Documentation - Extended Shortcodes",
+        "date: 2020-03-03T16:29:41+08:00",
+        "lastmod: 2023-03-24T09:03:13.186Z",
+        "draft: false",
+        "author: Dillon",
+        "authorLink: https://dillonzq.com",
+        "description: LoveIt theme provides multiple shortcodes on top of built-in ones in Hugo.",
+        "images: []",
+        "resources:",
+        "  - name: featured-image",
+        "    src: featured-image.jpg",
+        "  - name: featured-image-preview",
+        "    src: featured-image-preview.jpg",
+        "",
+        "tags:",
+        "  - shortcodes",
+        "categories:",
+        "  - documentation",
+        "",
+        "lightgallery: true",
+        "",
+        "math:",
+        "  enable: true",
+        "---"
+      ],
+      "fields": []
+    },
+    "Version Change": {
+      "description": "This example will add a version tag with the version numer in it",
+      "body": "{{< version 0.2.0 changed >}}",
+      "fields": []
+    },
+    "Codebox Snippet": {
+      "description": "This example will add a snippet inside a codebox with highlights",
+      "body": [
+        "```markdown",
+        "{{</* style \"text-align:right; strong{color:#00b1ff;}\" */>}}",
+        "This is a **right-aligned** paragraph.",
+        "{{</* /style */>}}",
+        "```"
+      ],
+      "fields": []
+    },
+    "Image": {
+      "description": "This example will add an image snippet in markdown (media snippet is enabled)",
+      "body": [
+        "```markdown",
+        "{{</* image src=\"/images/lighthouse.jpg\" caption=\"Lighthouse (`image`)\" src_s=\"/images/lighthouse-small.jpg\" src_l=\"/images/lighthouse-large.jpg\" */>}}",
+        "```"
+      ],
+      "isMediaSnippet": true
+    },
+    "Default Banner": {
+      "description": "This example will add a normal banner",
+      "body": [
+        "{{< admonition >}}",
+        "Hugo **extended** version is necessary for `style` shortcode.",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Abstract Banner": {
+      "description": "This will add an Abstract Banner",
+      "body": [
+        "{{< admonition abstract >}}",
+        "An **abstract** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Info Banner": {
+      "description": "This will add a Info Banner",
+      "body": [
+        "{{< admonition info >}}",
+        "A **info** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Tip Banner": {
+      "description": "This will add a Tip Banner",
+      "body": [
+        "{{< admonition tip >}}",
+        "A **tip** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Success Banner": {
+      "description": "This will add a Success Banner",
+      "body": [
+        "{{< admonition success >}}",
+        "A **success** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Question Banner": {
+      "description": "This will add a question banner",
+      "body": [
+        "{{< admonition question >}}",
+        "A **question** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Warning Banner": {
+      "description": "This will add a warning banner",
+      "body": [
+        "{{< admonition warning >}}",
+        "A **warning** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Failure Banner": {
+      "description": "This will add a failure banner",
+      "body": [
+        "{{< admonition failure >}}",
+        "A **failure** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Danger Banner": {
+      "description": "This will add a danger banner",
+      "body": [
+        "{{< admonition danger >}}",
+        "A **danger** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Bug Banner": {
+      "description": "This will add a bug banner",
+      "body": [
+        "{{< admonition bug >}}",
+        "A **bug** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Example Banner": {
+      "description": "This will add an example banner",
+      "body": [
+        "{{< admonition example >}}",
+        "An **example** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Quote Banner": {
+      "description": "This will add a quote banner",
+      "body": [
+        "{{< admonition quote >}}",
+        "A **quote** banner",
+        "{{< /admonition >}}"
+      ],
+      "fields": []
+    },
+    "Person w/Avatar": {
+      "description": "This example will add a person and their avatar snippet",
+      "body": "{{< person url=\"https://evgenykuznetsov.org\" name=\"Evgeny Kuznetsov\" nick=\"nekr0z\" text=\"author of this shortcode\" picture=\"https://evgenykuznetsov.org/img/avatar.jpg\" >}}",
+      "isMediaSnippet": true
+    },
+    "Person": {
+      "description": "This example will add a person without their avatar",
+      "body": "{{< person \"https://dillonzq.com/\" Dillon \"author of the LoveIt theme\" >}}",
+      "fields": []
+    },
+    "HTML Snippet": {
+      "description": "This will add a codebox with HTML in it",
+      "body": [
+        "```html",
+        "<figure>",
+        "    <img src=\"/images/lighthouse.jpg\"/>",
+        "    <figcaption>",
+        "        <h4>Lighthouse (figure)</h4>",
+        "    </figcaption>",
+        "</figure>",
+        "```"
+      ],
+      "fields": []
+    },
+    "Gist Box": {
+      "description": "This example will add a gist snippet using the url extention",
+      "body": [
+        "```CHANGE LANGUAGE",
+        "{{< gist Nimaear 5e4dee8afbd0e02f3c7b8ad100db7394 >}}",
+        "```"
+      ],
+      "fields": []
+    },
+    "Tweet Post": {
+      "description": "This will add an existing twitter post with the tweets url extention",
+      "body": "{{< tweet 917359331535966209 >}}",
+      "fields": []
+    },
+    "Vimeo": {
+      "description": "This snippet will add a vimeo video using its video extention",
+      "body": "{{< vimeo 146022717 >}}",
+      "fields": [],
+      "isMediaSnippet": true
+    },
+    "Youtube Video": {
+      "description": "This example will add a youtube video using the video id",
+      "body": [
+        "{{< youtube w7Ft2ymGmfc >}}",
+        ""
+      ],
+      "fields": []
+    },
+    "Banner with Title": {
+      "description": "This snippet shows as an example using a banner with a title and a codebox",
+      "body": [
+        "{{< admonition tip \"Tips about CDN Configuration\" >}}",
+        "{{< version 0.2.7 changed >}}",
+        "",
+        "```toml",
+        "[params.cdn]",
+        "  # CDN data file name, disabled by default",
+        "  # [\"jsdelivr.yml\"]",
+        "  data = \"\"",
+        "````"
+      ],
+      "fields": []
+    }
+  },
+  "frontMatter.content.pageFolders": [
+    {
+      "title": "content",
+      "path": "[[workspace]]/content",
+      "originalPath": "[[workspace]]/content"
+    },
+    {
+      "title": "snippets",
+      "path": "[[workspace]]/content/categories/snippets"
+    }
+  ]
+}

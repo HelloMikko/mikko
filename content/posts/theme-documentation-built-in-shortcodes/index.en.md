@@ -1,19 +1,22 @@
 ---
 weight: 3
-title: "Theme Documentation - Built-in Shortcodes"
+title: Theme Documentation - Built-in Shortcodes
 date: 2020-03-04T16:29:41+08:00
-lastmod: 2020-03-04T16:29:41+08:00
+lastmod: 2023-03-24T09:37:53.340Z
 draft: false
-author: "Dillon"
-authorLink: "https://dillonzq.com"
-description: "Hugo provides multiple built-in shortcodes for author convenience and to keep your markdown content clean."
+author: Dillon
+authorLink: https://dillonzq.com
+description: Hugo provides multiple built-in shortcodes for author convenience and to keep
+  your markdown content clean.
 images: []
 resources:
-- name: "featured-image"
-  src: "featured-image.png"
+  - name: featured-image
+    src: featured-image.png
 
-tags: ["shortcodes"]
-categories: ["documentation"]
+tags:
+  - shortcodes
+categories:
+  - documentation
 
 lightgallery: true
 ---
@@ -63,12 +66,12 @@ The HTML looks like this:
 Example `gist` input:
 
 ```markdown
-{{</* gist spf13 7896402 */>}}
+{{</* gist Nimaear 5e4dee8afbd0e02f3c7b8ad100db7394 */>}}
 ```
 
 The rendered output looks like this:
 
-{{< gist spf13 7896402 >}}
+{{< gist Nimaear 5e4dee8afbd0e02f3c7b8ad100db7394 >}}
 
 The HTML looks like this:
 

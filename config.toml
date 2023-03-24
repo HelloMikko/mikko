@@ -196,11 +196,11 @@ paginate = 6
 # Social config in home page
 # 主页的社交信息设置
 [params.social]
-GitHub = "https://github.com/codemikko/"
-Linkedin = "https://linkedin.com/in/hellomikko"
-Twitter = "https://twitter.com/codemikko"
+GitHub = "codemikko/"
+Linkedin = "hellomikko"
+Twitter = "codemikko"
 Instagram = ""
-Facebook = "https://facebook.com/mikkocodes"
+Facebook = "mikkocodes"
 Telegram = ""
 Medium = ""
 Gitlab = ""
@@ -212,7 +212,7 @@ Quora = ""
 Keybase = ""
 Pinterest = ""
 Reddit = ""
-Codepen = "https://codepen.io/MikkoCodes"
+Codepen = "MikkoCodes"
 FreeCodeCamp = ""
 Bitbucket = ""
 Stackoverflow = ""
@@ -223,13 +223,13 @@ Flickr = ""
 Xing = ""
 Snapchat = ""
 Soundcloud = ""
-Spotify = "https://open.spotify.com/user/djmtechnik?si=fd6cb0619d83431a"
+Spotify = "djmtechnik?si=fd6cb0619d83431a"
 Bandcamp = ""
 Paypal = ""
 Fivehundredpx = ""
 Mix = ""
 Goodreads = ""
-Lastfm = "https://www.last.fm/user/hellomikko"
+Lastfm = "hellomikko"
 Foursquare = ""
 Hackernews = ""
 Kickstarter = ""
@@ -244,8 +244,8 @@ Douban = ""
 Angellist = ""
 Slidershare = ""
 Jsfiddle = ""
-Deviantart = "https://www.deviantart.com/ephektiv"
-Behance = "https://www.behance.net/Ephektiv"
+Deviantart = "ephektiv"
+Behance = "Ephektiv"
 Dribbble = ""
 Wordpress = ""
 Vine = ""
@@ -401,7 +401,7 @@ Mix = false
 # Comment config
 # 评论系统设置
 [params.page.comment]
-enable = false
+enable = true
 
 # Disqus comment config (https://disqus.com/)
 # Disqus 评论系统设置 (https://disqus.com/)
@@ -414,7 +414,7 @@ shortname = ""
 # Gitalk comment config (https://github.com/gitalk/gitalk)
 # Gitalk 评论系统设置 (https://github.com/gitalk/gitalk)
 [params.page.comment.gitalk]
-enable = false
+enable = true
 owner = "codemikko"
 repo = "mikko"
 clientId = "7f2c8a45668bc7acdf9b"
@@ -661,20 +661,20 @@ title = ""
 
 [[menu.main]]
 weight = 2
-identifier = "tags"
-pre = ""
-post = ""
-name = "Tags"
-url = "/tags/"
-title = ""
-
-[[menu.main]]
-weight = 3
 identifier = "categories"
 pre = ""
 post = ""
 name = "Categories"
 url = "/categories/"
+title = ""
+
+[[menu.main]]
+weight = 3
+identifier = "tags"
+pre = ""
+post = ""
+name = "Tags"
+url = "/tags/"
 title = ""
 
 # Markup related configuration in Hugo

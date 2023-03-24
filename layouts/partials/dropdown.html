@@ -1,0 +1,26 @@
+<div class="dropdown is-hoverable">
+    <div class="dropdown-trigger">
+        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+            <span>Dropdown menu</span>
+            <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+        </button>
+    </div>
+    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+        <div class="dropdown-content">
+            <div class="dropdown-item">
+                <p>
+                    <strong>Dropdown item with text</strong>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend
+                    gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus.
+                </p>
+            </div>
+            <hr class="dropdown-divider">
+            {{ range .Site.Params.dropdown_links }}
+            <a href="{{ .url }}" class="dropdown-item">{{ .name }}</a>
+            {{ end }}
+        </div>
+    </div>
+</div>
