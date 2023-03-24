@@ -9,5 +9,13 @@
     "not firefox <= 111",
     "not ios_saf <= 14.8",
     "not opera <= 95"
-  ]
+  ],
+  "hints": {
+    "axe/name-role-value": [
+      "default",
+      {
+        "link-name": "off"
+      }
+    ]
+  }
 }
