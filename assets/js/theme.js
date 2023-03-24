@@ -1,40 +1,28 @@
 "use strict";
 
-function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure undefined"); }
-
+function _objectDestructuringEmpty(obj) { if (obj == null) throw new TypeError("Cannot destructure " + obj); }
 function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e2) { throw _e2; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e3) { didErr = true; err = _e3; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
-
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var Util = /*#__PURE__*/function () {
   function Util() {
     _classCallCheck(this, Util);
   }
-
   _createClass(Util, [{
     key: "forEach",
     value: function forEach(elements, handler) {
       elements = elements || [];
-
-      for (var i = 0; i < elements.length; i++) {
-        handler(elements[i]);
-      }
+      for (var i = 0; i < elements.length; i++) handler(elements[i]);
     }
   }, {
     key: "getScrollTop",
@@ -55,31 +43,22 @@ var Util = /*#__PURE__*/function () {
     key: "animateCSS",
     value: function animateCSS(element, animation, reserved, callback) {
       var _element$classList;
-
       if (!Array.isArray(animation)) animation = [animation];
-
       (_element$classList = element.classList).add.apply(_element$classList, ['animate__animated'].concat(_toConsumableArray(animation)));
-
       var handler = function handler() {
         var _element$classList2;
-
         (_element$classList2 = element.classList).remove.apply(_element$classList2, ['animate__animated'].concat(_toConsumableArray(animation)));
-
         element.removeEventListener('animationend', handler);
         if (typeof callback === 'function') callback();
       };
-
       if (!reserved) element.addEventListener('animationend', handler, false);
     }
   }]);
-
   return Util;
 }();
-
 var Theme = /*#__PURE__*/function () {
   function Theme() {
     _classCallCheck(this, Theme);
-
     this.config = window.config;
     this.data = this.config.data;
     this.isDark = document.body.getAttribute('theme') === 'dark';
@@ -92,12 +71,10 @@ var Theme = /*#__PURE__*/function () {
     this.clickMaskEventSet = new Set();
     if (window.objectFitImages) objectFitImages();
   }
-
   _createClass(Theme, [{
     key: "initRaw",
     value: function initRaw() {
       var _this = this;
-
       this.util.forEach(document.querySelectorAll('[data-raw]'), function ($raw) {
         $raw.innerHTML = _this.data[$raw.id];
       });
@@ -137,28 +114,23 @@ var Theme = /*#__PURE__*/function () {
         $menuToggleMobile.classList.toggle('active');
         $menuMobile.classList.toggle('active');
       }, false);
-
       this._menuMobileOnClickMask = this._menuMobileOnClickMask || function () {
         $menuToggleMobile.classList.remove('active');
         $menuMobile.classList.remove('active');
       };
-
       this.clickMaskEventSet.add(this._menuMobileOnClickMask);
     }
   }, {
     key: "initSwitchTheme",
     value: function initSwitchTheme() {
       var _this2 = this;
-
       this.util.forEach(document.getElementsByClassName('theme-switch'), function ($themeSwitch) {
         $themeSwitch.addEventListener('click', function () {
           if (document.body.getAttribute('theme') === 'dark') document.body.setAttribute('theme', 'light');else document.body.setAttribute('theme', 'dark');
           _this2.isDark = !_this2.isDark;
           window.localStorage && localStorage.setItem('theme', _this2.isDark ? 'dark' : 'light');
-
           var _iterator = _createForOfIteratorHelper(_this2.switchThemeEventSet),
-              _step;
-
+            _step;
           try {
             for (_iterator.s(); !(_step = _iterator.n()).done;) {
               var event = _step.value;
@@ -176,7 +148,6 @@ var Theme = /*#__PURE__*/function () {
     key: "initSearch",
     value: function initSearch() {
       var _this3 = this;
-
       var searchConfig = this.config.search;
       var isMobile = this.util.isMobile();
       if (!searchConfig || isMobile && this._searchMobileOnce || !isMobile && this._searchDesktopOnce) return;
@@ -189,7 +160,6 @@ var Theme = /*#__PURE__*/function () {
       var $searchToggle = document.getElementById("search-toggle-".concat(suffix));
       var $searchLoading = document.getElementById("search-loading-".concat(suffix));
       var $searchClear = document.getElementById("search-clear-".concat(suffix));
-
       if (isMobile) {
         this._searchMobileOnce = true;
         $searchInput.addEventListener('focus', function () {
@@ -209,14 +179,12 @@ var Theme = /*#__PURE__*/function () {
           $searchClear.style.display = 'none';
           _this3._searchMobile && _this3._searchMobile.autocomplete.setVal('');
         }, false);
-
         this._searchMobileOnClickMask = this._searchMobileOnClickMask || function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
           _this3._searchMobile && _this3._searchMobile.autocomplete.setVal('');
         };
-
         this.clickMaskEventSet.add(this._searchMobileOnClickMask);
       } else {
         this._searchDesktopOnce = true;
@@ -229,21 +197,17 @@ var Theme = /*#__PURE__*/function () {
           $searchClear.style.display = 'none';
           _this3._searchDesktop && _this3._searchDesktop.autocomplete.setVal('');
         }, false);
-
         this._searchDesktopOnClickMask = this._searchDesktopOnClickMask || function () {
           $header.classList.remove('open');
           $searchLoading.style.display = 'none';
           $searchClear.style.display = 'none';
           _this3._searchDesktop && _this3._searchDesktop.autocomplete.setVal('');
         };
-
         this.clickMaskEventSet.add(this._searchDesktopOnClickMask);
       }
-
       $searchInput.addEventListener('input', function () {
         if ($searchInput.value === '') $searchClear.style.display = 'none';else $searchClear.style.display = 'inline';
       }, false);
-
       var initAutosearch = function initAutosearch() {
         var autosearch = autocomplete("#search-input-".concat(suffix), {
           hint: false,
@@ -259,44 +223,38 @@ var Theme = /*#__PURE__*/function () {
           source: function source(query, callback) {
             $searchLoading.style.display = 'inline';
             $searchClear.style.display = 'none';
-
             var finish = function finish(results) {
               $searchLoading.style.display = 'none';
               $searchClear.style.display = 'inline';
               callback(results);
             };
-
             if (searchConfig.type === 'lunr') {
               var search = function search() {
                 if (lunr.queryHandler) query = lunr.queryHandler(query);
                 var results = {};
-
                 _this3._index.search(query).forEach(function (_ref) {
                   var ref = _ref.ref,
-                      metadata = _ref.matchData.metadata;
+                    metadata = _ref.matchData.metadata;
                   var matchData = _this3._indexData[ref];
                   var uri = matchData.uri,
-                      title = matchData.title,
-                      context = matchData.content;
+                    title = matchData.title,
+                    context = matchData.content;
                   if (results[uri]) return;
                   var position = 0;
                   Object.values(metadata).forEach(function (_ref2) {
                     var content = _ref2.content;
-
                     if (content) {
                       var matchPosition = content.position[0][0];
                       if (matchPosition < position || position === 0) position = matchPosition;
                     }
                   });
                   position -= snippetLength / 5;
-
                   if (position > 0) {
                     position += context.substr(position, 20).lastIndexOf(' ') + 1;
                     context = '...' + context.substr(position, snippetLength);
                   } else {
                     context = context.substr(0, snippetLength);
                   }
-
                   Object.keys(metadata).forEach(function (key) {
                     title = title.replace(new RegExp("(".concat(key, ")"), 'gi'), "<".concat(highlightTag, ">$1</").concat(highlightTag, ">"));
                     context = context.replace(new RegExp("(".concat(key, ")"), 'gi'), "<".concat(highlightTag, ">$1</").concat(highlightTag, ">"));
@@ -308,10 +266,8 @@ var Theme = /*#__PURE__*/function () {
                     'context': context
                   };
                 });
-
                 return Object.values(results).slice(0, maxResultLength);
               };
-
               if (!_this3._index) {
                 fetch(searchConfig.lunrIndexURL).then(function (response) {
                   return response.json();
@@ -319,7 +275,6 @@ var Theme = /*#__PURE__*/function () {
                   var indexData = {};
                   _this3._index = lunr(function () {
                     var _this4 = this;
-
                     if (searchConfig.lunrLanguageCode) this.use(lunr[searchConfig.lunrLanguageCode]);
                     this.ref('objectID');
                     this.field('title', {
@@ -337,7 +292,6 @@ var Theme = /*#__PURE__*/function () {
                     this.metadataWhitelist = ['position'];
                     data.forEach(function (record) {
                       indexData[record.objectID] = record;
-
                       _this4.add(record);
                     });
                   });
@@ -350,7 +304,6 @@ var Theme = /*#__PURE__*/function () {
               } else finish(search());
             } else if (searchConfig.type === 'algolia') {
               _this3._algoliaIndex = _this3._algoliaIndex || algoliasearch(searchConfig.algoliaAppID, searchConfig.algoliaSearchKey).initIndex(searchConfig.algoliaIndex);
-
               _this3._algoliaIndex.search(query, {
                 offset: 0,
                 length: maxResultLength * 8,
@@ -363,9 +316,9 @@ var Theme = /*#__PURE__*/function () {
                 var results = {};
                 hits.forEach(function (_ref4) {
                   var uri = _ref4.uri,
-                      date = _ref4.date,
-                      title = _ref4._highlightResult.title,
-                      content = _ref4._snippetResult.content;
+                    date = _ref4.date,
+                    title = _ref4._highlightResult.title,
+                    content = _ref4._snippetResult.content;
                   if (results[uri] && results[uri].context.length > content.value) return;
                   results[uri] = {
                     uri: uri,
@@ -384,8 +337,8 @@ var Theme = /*#__PURE__*/function () {
           templates: {
             suggestion: function suggestion(_ref5) {
               var title = _ref5.title,
-                  date = _ref5.date,
-                  context = _ref5.context;
+                date = _ref5.date,
+                context = _ref5.context;
               return "<div><span class=\"suggestion-title\">".concat(title, "</span><span class=\"suggestion-date\">").concat(date, "</span></div><div class=\"suggestion-context\">").concat(context, "</div>");
             },
             empty: function empty(_ref6) {
@@ -394,20 +347,18 @@ var Theme = /*#__PURE__*/function () {
             },
             footer: function footer(_ref7) {
               _objectDestructuringEmpty(_ref7);
-
               var _ref8 = searchConfig.type === 'algolia' ? {
-                searchType: 'algolia',
-                icon: '<i class="fab fa-algolia fa-fw" aria-hidden="true"></i>',
-                href: 'https://www.algolia.com/'
-              } : {
-                searchType: 'Lunr.js',
-                icon: '',
-                href: 'https://lunrjs.com/'
-              },
-                  searchType = _ref8.searchType,
-                  icon = _ref8.icon,
-                  href = _ref8.href;
-
+                  searchType: 'algolia',
+                  icon: '<i class="fab fa-algolia fa-fw" aria-hidden="true"></i>',
+                  href: 'https://www.algolia.com/'
+                } : {
+                  searchType: 'Lunr.js',
+                  icon: '',
+                  href: 'https://lunrjs.com/'
+                },
+                searchType = _ref8.searchType,
+                icon = _ref8.icon,
+                href = _ref8.href;
               return "<div class=\"search-footer\">Search by <a href=\"".concat(href, "\" rel=\"noopener noreffer\" target=\"_blank\">").concat(icon, " ").concat(searchType, "</a></div>");
             }
           }
@@ -417,14 +368,12 @@ var Theme = /*#__PURE__*/function () {
         });
         if (isMobile) _this3._searchMobile = autosearch;else _this3._searchDesktop = autosearch;
       };
-
       if (searchConfig.lunrSegmentitURL && !document.getElementById('lunr-segmentit')) {
         var script = document.createElement('script');
         script.id = 'lunr-segmentit';
         script.type = 'text/javascript';
         script.src = searchConfig.lunrSegmentitURL;
         script.async = true;
-
         if (script.readyState) {
           script.onreadystatechange = function () {
             if (script.readyState == 'loaded' || script.readyState == 'complete') {
@@ -437,7 +386,6 @@ var Theme = /*#__PURE__*/function () {
             initAutosearch();
           };
         }
-
         document.body.appendChild(script);
       } else initAutosearch();
     }
@@ -472,7 +420,6 @@ var Theme = /*#__PURE__*/function () {
     key: "initHighlight",
     value: function initHighlight() {
       var _this5 = this;
-
       this.util.forEach(document.querySelectorAll('.highlight > pre.chroma'), function ($preChroma) {
         var $chroma = document.createElement('div');
         $chroma.className = $preChroma.className;
@@ -489,7 +436,6 @@ var Theme = /*#__PURE__*/function () {
       });
       this.util.forEach(document.querySelectorAll('.highlight > .chroma'), function ($chroma) {
         var $codeElements = $chroma.querySelectorAll('pre.chroma > code');
-
         if ($codeElements.length) {
           var $code = $codeElements[$codeElements.length - 1];
           var $header = document.createElement('div');
@@ -513,7 +459,6 @@ var Theme = /*#__PURE__*/function () {
           $copy.classList.add('copy');
           var code = $code.innerText;
           if (_this5.config.code.maxShownLines < 0 || code.split('\n').length < _this5.config.code.maxShownLines + 2) $chroma.classList.add('open');
-
           if (_this5.config.code.copyTitle) {
             $copy.setAttribute('data-clipboard-text', code);
             $copy.title = _this5.config.code.copyTitle;
@@ -523,7 +468,6 @@ var Theme = /*#__PURE__*/function () {
             });
             $header.appendChild($copy);
           }
-
           $chroma.insertBefore($header, $chroma.firstChild);
         }
       });
@@ -552,27 +496,21 @@ var Theme = /*#__PURE__*/function () {
     key: "initToc",
     value: function initToc() {
       var _this6 = this;
-
       var $tocCore = document.getElementById('TableOfContents');
       if ($tocCore === null) return;
-
       if (document.getElementById('toc-static').getAttribute('data-kept') || this.util.isTocStatic()) {
         var $tocContentStatic = document.getElementById('toc-content-static');
-
         if ($tocCore.parentElement !== $tocContentStatic) {
           $tocCore.parentElement.removeChild($tocCore);
           $tocContentStatic.appendChild($tocCore);
         }
-
         if (this._tocOnScroll) this.scrollEventSet.delete(this._tocOnScroll);
       } else {
         var $tocContentAuto = document.getElementById('toc-content-auto');
-
         if ($tocCore.parentElement !== $tocContentAuto) {
           $tocCore.parentElement.removeChild($tocCore);
           $tocContentAuto.appendChild($tocCore);
         }
-
         var $toc = document.getElementById('toc-auto');
         var $page = document.getElementsByClassName('page')[0];
         var rect = $page.getBoundingClientRect();
@@ -587,12 +525,10 @@ var Theme = /*#__PURE__*/function () {
         var TOP_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
         var minTocTop = $toc.offsetTop;
         var minScrollTop = minTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-
         this._tocOnScroll = this._tocOnScroll || function () {
           var footerTop = document.getElementById('post-footer').offsetTop;
           var maxTocTop = footerTop - $toc.getBoundingClientRect().height;
           var maxScrollTop = maxTocTop - TOP_SPACING + (headerIsFixed ? 0 : headerHeight);
-
           if (_this6.newScrollTop < minScrollTop) {
             $toc.style.position = 'absolute';
             $toc.style.top = "".concat(minTocTop, "px");
@@ -603,41 +539,32 @@ var Theme = /*#__PURE__*/function () {
             $toc.style.position = 'fixed';
             $toc.style.top = "".concat(TOP_SPACING, "px");
           }
-
           _this6.util.forEach($tocLinkElements, function ($tocLink) {
             $tocLink.classList.remove('active');
           });
-
           _this6.util.forEach($tocLiElements, function ($tocLi) {
             $tocLi.classList.remove('has-active');
           });
-
           var INDEX_SPACING = 20 + (headerIsFixed ? headerHeight : 0);
           var activeTocIndex = $headerLinkElements.length - 1;
-
           for (var i = 0; i < $headerLinkElements.length - 1; i++) {
             var thisTop = $headerLinkElements[i].getBoundingClientRect().top;
             var nextTop = $headerLinkElements[i + 1].getBoundingClientRect().top;
-
             if (i == 0 && thisTop > INDEX_SPACING || thisTop <= INDEX_SPACING && nextTop > INDEX_SPACING) {
               activeTocIndex = i;
               break;
             }
           }
-
           if (activeTocIndex !== -1) {
             $tocLinkElements[activeTocIndex].classList.add('active');
             var $parent = $tocLinkElements[activeTocIndex].parentElement;
-
             while ($parent !== $tocCore) {
               $parent.classList.add('has-active');
               $parent = $parent.parentElement.parentElement;
             }
           }
         };
-
         this._tocOnScroll();
-
         this.scrollEventSet.add(this._tocOnScroll);
       }
     }
@@ -650,17 +577,14 @@ var Theme = /*#__PURE__*/function () {
     key: "initMermaid",
     value: function initMermaid() {
       var _this7 = this;
-
       this._mermaidOnSwitchTheme = this._mermaidOnSwitchTheme || function () {
         var $mermaidElements = document.getElementsByClassName('mermaid');
-
         if ($mermaidElements.length) {
           mermaid.initialize({
             startOnLoad: false,
             theme: _this7.isDark ? 'dark' : 'neutral',
             securityLevel: 'loose'
           });
-
           _this7.util.forEach($mermaidElements, function ($mermaid) {
             mermaid.render('svg-' + $mermaid.id, _this7.data[$mermaid.id], function (svgCode) {
               $mermaid.innerHTML = svgCode;
@@ -668,49 +592,37 @@ var Theme = /*#__PURE__*/function () {
           });
         }
       };
-
       this.switchThemeEventSet.add(this._mermaidOnSwitchTheme);
-
       this._mermaidOnSwitchTheme();
     }
   }, {
     key: "initEcharts",
     value: function initEcharts() {
       var _this8 = this;
-
       if (this.config.echarts) {
         echarts.registerTheme('light', this.config.echarts.lightTheme);
         echarts.registerTheme('dark', this.config.echarts.darkTheme);
-
         this._echartsOnSwitchTheme = this._echartsOnSwitchTheme || function () {
           _this8._echartsArr = _this8._echartsArr || [];
-
           for (var i = 0; i < _this8._echartsArr.length; i++) {
             _this8._echartsArr[i].dispose();
           }
-
           _this8._echartsArr = [];
-
           _this8.util.forEach(document.getElementsByClassName('echarts'), function ($echarts) {
             var chart = echarts.init($echarts, _this8.isDark ? 'dark' : 'light', {
               renderer: 'svg'
             });
             chart.setOption(JSON.parse(_this8.data[$echarts.id]));
-
             _this8._echartsArr.push(chart);
           });
         };
-
         this.switchThemeEventSet.add(this._echartsOnSwitchTheme);
-
         this._echartsOnSwitchTheme();
-
         this._echartsOnResize = this._echartsOnResize || function () {
           for (var i = 0; i < _this8._echartsArr.length; i++) {
             _this8._echartsArr[i].resize();
           }
         };
-
         this.resizeEventSet.add(this._echartsOnResize);
       }
     }
@@ -718,23 +630,22 @@ var Theme = /*#__PURE__*/function () {
     key: "initMapbox",
     value: function initMapbox() {
       var _this9 = this;
-
       if (this.config.mapbox) {
         mapboxgl.accessToken = this.config.mapbox.accessToken;
         mapboxgl.setRTLTextPlugin(this.config.mapbox.RTLTextPlugin);
         this._mapboxArr = this._mapboxArr || [];
         this.util.forEach(document.getElementsByClassName('mapbox'), function ($mapbox) {
           var _this9$data$$mapbox$i = _this9.data[$mapbox.id],
-              lng = _this9$data$$mapbox$i.lng,
-              lat = _this9$data$$mapbox$i.lat,
-              zoom = _this9$data$$mapbox$i.zoom,
-              lightStyle = _this9$data$$mapbox$i.lightStyle,
-              darkStyle = _this9$data$$mapbox$i.darkStyle,
-              marked = _this9$data$$mapbox$i.marked,
-              navigation = _this9$data$$mapbox$i.navigation,
-              geolocate = _this9$data$$mapbox$i.geolocate,
-              scale = _this9$data$$mapbox$i.scale,
-              fullscreen = _this9$data$$mapbox$i.fullscreen;
+            lng = _this9$data$$mapbox$i.lng,
+            lat = _this9$data$$mapbox$i.lat,
+            zoom = _this9$data$$mapbox$i.zoom,
+            lightStyle = _this9$data$$mapbox$i.lightStyle,
+            darkStyle = _this9$data$$mapbox$i.darkStyle,
+            marked = _this9$data$$mapbox$i.marked,
+            navigation = _this9$data$$mapbox$i.navigation,
+            geolocate = _this9$data$$mapbox$i.geolocate,
+            scale = _this9$data$$mapbox$i.scale,
+            fullscreen = _this9$data$$mapbox$i.fullscreen;
           var mapbox = new mapboxgl.Map({
             container: $mapbox,
             center: [lng, lat],
@@ -743,15 +654,12 @@ var Theme = /*#__PURE__*/function () {
             style: _this9.isDark ? darkStyle : lightStyle,
             attributionControl: false
           });
-
           if (marked) {
             new mapboxgl.Marker().setLngLat([lng, lat]).addTo(mapbox);
           }
-
           if (navigation) {
             mapbox.addControl(new mapboxgl.NavigationControl(), 'bottom-right');
           }
-
           if (geolocate) {
             mapbox.addControl(new mapboxgl.GeolocateControl({
               positionOptions: {
@@ -761,31 +669,25 @@ var Theme = /*#__PURE__*/function () {
               trackUserLocation: true
             }), 'bottom-right');
           }
-
           if (scale) {
             mapbox.addControl(new mapboxgl.ScaleControl());
           }
-
           if (fullscreen) {
             mapbox.addControl(new mapboxgl.FullscreenControl());
           }
-
           mapbox.addControl(new MapboxLanguage());
-
           _this9._mapboxArr.push(mapbox);
         });
-
         this._mapboxOnSwitchTheme = this._mapboxOnSwitchTheme || function () {
           _this9.util.forEach(_this9._mapboxArr, function (mapbox) {
             var $mapbox = mapbox.getContainer();
             var _this9$data$$mapbox$i2 = _this9.data[$mapbox.id],
-                lightStyle = _this9$data$$mapbox$i2.lightStyle,
-                darkStyle = _this9$data$$mapbox$i2.darkStyle;
+              lightStyle = _this9$data$$mapbox$i2.lightStyle,
+              darkStyle = _this9$data$$mapbox$i2.darkStyle;
             mapbox.setStyle(_this9.isDark ? darkStyle : lightStyle);
             mapbox.addControl(new MapboxLanguage());
           });
         };
-
         this.switchThemeEventSet.add(this._mapboxOnSwitchTheme);
       }
     }
@@ -793,7 +695,6 @@ var Theme = /*#__PURE__*/function () {
     key: "initTypeit",
     value: function initTypeit() {
       var _this10 = this;
-
       if (this.config.typeit) {
         var typeitConfig = this.config.typeit;
         var speed = typeitConfig.speed ? typeitConfig.speed : 100;
@@ -816,13 +717,11 @@ var Theme = /*#__PURE__*/function () {
                   }, typeitConfig.duration);
                   return;
                 }
-
                 instance.destroy();
                 typeone(i + 1);
               }
             }).go();
           };
-
           typeone(0);
         });
       }
@@ -831,16 +730,13 @@ var Theme = /*#__PURE__*/function () {
     key: "initComment",
     value: function initComment() {
       var _this11 = this;
-
       if (this.config.comment) {
         if (this.config.comment.gitalk) {
           this.config.comment.gitalk.body = decodeURI(window.location.href);
           var gitalk = new Gitalk(this.config.comment.gitalk);
           gitalk.render('gitalk');
         }
-
         if (this.config.comment.valine) new Valine(this.config.comment.valine);
-
         if (this.config.comment.utterances) {
           var utterancesConfig = this.config.comment.utterances;
           var script = document.createElement('script');
@@ -853,7 +749,6 @@ var Theme = /*#__PURE__*/function () {
           script.crossOrigin = 'anonymous';
           script.async = true;
           document.getElementById('utterances').appendChild(script);
-
           this._utterancesOnSwitchTheme = this._utterancesOnSwitchTheme || function () {
             var message = {
               type: 'set-theme',
@@ -862,10 +757,8 @@ var Theme = /*#__PURE__*/function () {
             var iframe = document.querySelector('.utterances-frame');
             iframe.contentWindow.postMessage(message, 'https://utteranc.es');
           };
-
           this.switchThemeEventSet.add(this._utterancesOnSwitchTheme);
         }
-
         if (this.config.comment.giscus) {
           var giscusConfig = this.config.comment.giscus;
           var giscusScript = document.createElement('script');
@@ -885,7 +778,6 @@ var Theme = /*#__PURE__*/function () {
           giscusScript.crossOrigin = 'anonymous';
           giscusScript.async = true;
           document.getElementById('giscus').appendChild(giscusScript);
-
           this._giscusOnSwitchTheme = this._giscusOnSwitchTheme || function () {
             var message = {
               setConfig: {
@@ -899,7 +791,6 @@ var Theme = /*#__PURE__*/function () {
               giscus: message
             }, 'https://giscus.app');
           };
-
           this.switchThemeEventSet.add(this._giscusOnSwitchTheme);
         }
       }
@@ -913,62 +804,48 @@ var Theme = /*#__PURE__*/function () {
     key: "onScroll",
     value: function onScroll() {
       var _this12 = this;
-
       var $headers = [];
       if (document.body.getAttribute('data-header-desktop') === 'auto') $headers.push(document.getElementById('header-desktop'));
       if (document.body.getAttribute('data-header-mobile') === 'auto') $headers.push(document.getElementById('header-mobile'));
-
       if (document.getElementById('comments')) {
         var $viewComments = document.getElementById('view-comments');
         $viewComments.href = "#comments";
         $viewComments.style.display = 'block';
       }
-
       var $fixedButtons = document.getElementById('fixed-buttons');
       var ACCURACY = 20,
-          MINIMUM = 100;
+        MINIMUM = 100;
       window.addEventListener('scroll', function () {
         _this12.newScrollTop = _this12.util.getScrollTop();
         var scroll = _this12.newScrollTop - _this12.oldScrollTop;
-
         var isMobile = _this12.util.isMobile();
-
         _this12.util.forEach($headers, function ($header) {
           if (scroll > ACCURACY) {
             $header.classList.remove('animate__fadeInDown');
-
             _this12.util.animateCSS($header, ['animate__fadeOutUp', 'animate__faster'], true);
           } else if (scroll < -ACCURACY) {
             $header.classList.remove('animate__fadeOutUp');
-
             _this12.util.animateCSS($header, ['animate__fadeInDown', 'animate__faster'], true);
           }
         });
-
         if (_this12.newScrollTop > MINIMUM) {
           if (isMobile && scroll > ACCURACY) {
             $fixedButtons.classList.remove('animate__fadeIn');
-
             _this12.util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
           } else if (!isMobile || scroll < -ACCURACY) {
             $fixedButtons.style.display = 'block';
             $fixedButtons.classList.remove('animate__fadeOut');
-
             _this12.util.animateCSS($fixedButtons, ['animate__fadeIn', 'animate__faster'], true);
           }
         } else {
           if (!isMobile) {
             $fixedButtons.classList.remove('animate__fadeIn');
-
             _this12.util.animateCSS($fixedButtons, ['animate__fadeOut', 'animate__faster'], true);
           }
-
           $fixedButtons.style.display = 'none';
         }
-
         var _iterator2 = _createForOfIteratorHelper(_this12.scrollEventSet),
-            _step2;
-
+          _step2;
         try {
           for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
             var event = _step2.value;
@@ -979,7 +856,6 @@ var Theme = /*#__PURE__*/function () {
         } finally {
           _iterator2.f();
         }
-
         _this12.oldScrollTop = _this12.newScrollTop;
       }, false);
     }
@@ -987,15 +863,12 @@ var Theme = /*#__PURE__*/function () {
     key: "onResize",
     value: function onResize() {
       var _this13 = this;
-
       window.addEventListener('resize', function () {
         if (!_this13._resizeTimeout) {
           _this13._resizeTimeout = window.setTimeout(function () {
             _this13._resizeTimeout = null;
-
             var _iterator3 = _createForOfIteratorHelper(_this13.resizeEventSet),
-                _step3;
-
+              _step3;
             try {
               for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
                 var event = _step3.value;
@@ -1006,11 +879,8 @@ var Theme = /*#__PURE__*/function () {
             } finally {
               _iterator3.f();
             }
-
             _this13.initToc();
-
             _this13.initMermaid();
-
             _this13.initSearch();
           }, 100);
         }
@@ -1020,11 +890,9 @@ var Theme = /*#__PURE__*/function () {
     key: "onClickMask",
     value: function onClickMask() {
       var _this14 = this;
-
       document.getElementById('mask').addEventListener('click', function () {
         var _iterator4 = _createForOfIteratorHelper(_this14.clickMaskEventSet),
-            _step4;
-
+          _step4;
         try {
           for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
             var event = _step4.value;
@@ -1035,7 +903,6 @@ var Theme = /*#__PURE__*/function () {
         } finally {
           _iterator4.f();
         }
-
         document.body.classList.remove('blur');
       }, false);
     }
@@ -1043,7 +910,6 @@ var Theme = /*#__PURE__*/function () {
     key: "init",
     value: function init() {
       var _this15 = this;
-
       try {
         this.initRaw();
         this.initSVGIcon();
@@ -1065,29 +931,21 @@ var Theme = /*#__PURE__*/function () {
       } catch (err) {
         console.error(err);
       }
-
       window.setTimeout(function () {
         _this15.initToc();
-
         _this15.initComment();
-
         _this15.onScroll();
-
         _this15.onResize();
-
         _this15.onClickMask();
       }, 100);
     }
   }]);
-
   return Theme;
 }();
-
 var themeInit = function themeInit() {
   var theme = new Theme();
   theme.init();
 };
-
 if (document.readyState !== 'loading') {
   themeInit();
 } else {
