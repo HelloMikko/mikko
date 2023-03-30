@@ -23,9 +23,8 @@ license:
 keywords:
   - emoji
   - list
-description: ""
 slug: markdown-emoji-list
-lastmod: 2023-03-30T06:29:05.198Z
+lastmod: 2023-03-30T06:55:09.910Z
 ---
 
 Below is a list of Markdown Emoji's
@@ -45,7 +44,7 @@ Personally, my favorite is Material for MKDocs if you would ask me. 😄 However
 
 {{< admonition tip "People" >}}
 
-| :bowtie: :bowtie:                                     | 😄 :smile:                         | 😆 :laughing:             |
+|                                   | 😄 :smile:                         | 😆 :laughing:             |
 | :---------------------------------------------------- | :---------------------------------- | :------------------------- |
 | 😊 :blush:                                           | 😃 :smiley:                        | ☺️ :relaxed:             |
 | 😏 :smirk:                                           | 😍 :heart_eyes:                    | 😘 :kissing_heart:        |
@@ -107,11 +106,7 @@ Personally, my favorite is Material for MKDocs if you would ask me. 😄 However
 | 👂 :ear:                                             | 👀 :eyes:                          | 👃 :nose:                 |
 | 👅 :tongue:                                          | 💌 :love_letter:                   | 👤 :bust_in_silhouette:   |
 | 👥 :busts_in_silhouette:                             | 💬 :speech_balloon:                | 💭 :thought_balloon:      |
-| :feelsgood: :feelsgood:                               | :finnadie: :finnadie:               | :goberserk: :goberserk:    |
-| :godmode: :godmode:                                   | :hurtrealbad: :hurtrealbad:         | :rage1: :rage1:            |
-| :rage2: :rage2:                                       | :rage3: :rage3:                     | :rage4: :rage4:            |
-| :suspect: :suspect:                                   | :trollface: :trollface:             |                            |
+
 {{< /admonition >}}
 
-
-${license}
+More will be added as the list is a bit longer. However since I dont have time right at this moment, I will add more very soon!
