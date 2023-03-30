@@ -8,18 +8,12 @@
             {{- .Title -}}
         </h1>
 
-
-        {{- /* FeaturedImage */ -}}
-        {{- with .Params.featuredimage -}}
-        <img src="{{ . }}" alt="featured image">
-      {{- end -}}
-      
+        <img src="{{ .Params.featuredimage }}" alt="featured image">
 
         {{- /* Summery */ -}}
         {{- with $params.summery -}}
-        <h3 class="single-summery text-warning">{{ . }}</h3>
+        <h3 class="single-summery">{{ . }}</h3>
       {{- end -}}
-      
 
         {{- /* Content */ -}}
         <div class="content" id="content">

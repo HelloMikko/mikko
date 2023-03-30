@@ -15,8 +15,7 @@ tags:
 resources:
   - Gist
 lightgallery: false
-featuredimage: /snippets/Gbm19is.png
-images: /snippets/Gbm19is.png
+featuredimage: https://i.imgur.com/3pYRPyL.png
 divider: true
 license:
   - GNU General Public License (GPL)
@@ -24,7 +23,7 @@ keywords:
   - emoji
   - list
 slug: markdown-emoji-list
-lastmod: 2023-03-30T06:55:09.910Z
+lastmod: 2023-03-30T07:12:33.042Z
 ---
 
 Below is a list of Markdown Emoji's
