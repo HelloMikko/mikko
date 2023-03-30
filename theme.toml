@@ -1,18 +1,10 @@
 name = "LoveIt"
 license = "MIT"
-licenselink = "https://github.com/dillonzq/LoveIt/blob/master/LICENSE"
-description = "A Clean, Elegant but Advanced Hugo Theme for Hugo."
-
-homepage = "https://hugoloveit.com"
-demosite = "https://hugoloveit.com"
-
-tags = [
-  "blog",
-  "clean",
-  "responsive",
-  "dark",
-  "theme"
-]
+licenselink = "https://github.com/codemikko/mikkocodes/blob/master/LICENSE"
+description = "The most Safisticated and Elegant, Advanced Hugo Theme there is... for Hugo."
+homepage = "https://mikko.codes"
+demosite = "https://suspicious-archimedes-ab369d.netlify.app/"
+tags = ["blog", "clean", "responsive", "dark", "theme"]
 features = [
   "cover-image",
   "favicon",
@@ -22,14 +14,13 @@ features = [
   "syntax-highlighting",
   "SEO Optimized"
 ]
-
 min_version = "0.62.0"
 
 [author]
-  name = "Dillon"
-  homepage = "https://dillonzq.com/"
+name = "Mikko"
+homepage = "https://mikko.codes"
 
 [original]
-  name = "Fastbyte01"
-  homepage = "https://www.fsb01.com/"
-  repo = "https://github.com/Fastbyte01/KeepIt"
+name = "Dillon"
+homepage = "https://dillonzq.com/"
+repo = "https://github.com/dillonzq/LoveIt"

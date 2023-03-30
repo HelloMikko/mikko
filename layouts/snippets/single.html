@@ -55,6 +55,8 @@
             <i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="{{ . }}">{{ .
                 }}</time>&nbsp;
             {{- end -}}
+
+
             <i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;{{ T "wordCount" .WordCount }}&nbsp;
             <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;{{ T "readingTime" .ReadingTime }}&nbsp;
             {{- $comment := .Scratch.Get "comment" | default dict -}}
@@ -65,10 +67,18 @@
             </span>&nbsp;
             {{- end -}}
         </div>
+        <span class="text-gray-600 text-sm font-normal">Last Updated on: </span><span class="text-gray-500 text-sm">{{-
+            with
+            .Site.Params.dateformat | default "2006-01-02" |
+            .Lastmod.Format -}}
+            <i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="{{ . }}">{{ .
+                }}</time>&nbsp;</span>
+        {{- end -}}
     </div>
 
+
     {{- /* Featured image */ -}}
-    {{- $image := $params.featuredimage -}}
+    {{- $image := $params.preview -}}
     {{- with .Resources.GetMatch "featured-image" -}}
     {{- $image = .RelPermalink -}}
     {{- end -}}
@@ -77,6 +87,22 @@
         {{- dict "Src" . "Title" $.Description "Resources" $.Resources | partial "plugin/img.html" -}}
     </div>
     {{- end -}}
+
+    <br />
+    <div class="post-info-more">
+        <section class="post-tags">
+            {{- with .Params.tags -}}
+            <i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;
+            {{- range $index, $value := . -}}
+            {{- if gt $index 0 }},&nbsp;{{ end -}}
+            {{- $tag := partialCached "function/path.html" $value $value | printf "/tags/%v" | $.Site.GetPage -}}
+            <a href="{{ $tag.RelPermalink }}">{{ $tag.Title }}</a>
+            {{- end -}}
+            {{- end -}}
+        </section>
+    </div>
+    <br /><br />
+
 
     {{- /* Static TOC */ -}}
     {{- if ne $toc.enable false -}}
@@ -98,10 +124,13 @@
         partial "function/content.html" | safeHTML -}}
     </div>
 
-    {{- /* Footer */ -}}
-    {{- partial "single/footer.html" . -}}
 
     {{- /* Comment */ -}}
     {{- partial "comment.html" . -}}
+
+    {{- /* Footer */ -}}
+    {{- partial "single/footer.html" . -}}
+
+
 </article>
 {{- end -}}

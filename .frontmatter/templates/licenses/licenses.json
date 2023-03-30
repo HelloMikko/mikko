@@ -1,0 +1,50 @@
+{
+  "license": {
+    "choices": [
+      {
+        "name": "Public Domain (CC0)",
+        "description": "The creator has waived all rights to the work, allowing anyone to use it freely without any restrictions."
+      },
+      {
+        "name": "Attribution (CC BY)",
+        "description": "Users can share, adapt, and use the work, even for commercial purposes, as long as they give appropriate credit."
+      },
+      {
+        "name": "Attribution-ShareAlike (CC BY-SA)",
+        "description": "Users can share, adapt, and use the work, even for commercial purposes, as long as they give appropriate credit and distribute their contributions under the same license."
+      },
+      {
+        "name": "Attribution-NoDerivs (CC BY-ND)",
+        "description": "Users can share and use the work, even for commercial purposes, as long as they give appropriate credit and do not create derivative works."
+      },
+      {
+        "name": "Attribution-NonCommercial (CC BY-NC)",
+        "description": "Users can share, adapt, and use the work, but not for commercial purposes, as long as they give appropriate credit."
+      },
+      {
+        "name": "Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)",
+        "description": "Users can share, adapt, and use the work, but not for commercial purposes, as long as they give appropriate credit and distribute their contributions under the same license."
+      },
+      {
+        "name": "Attribution-NonCommercial-NoDerivs (CC BY-NC-ND)",
+        "description": "Users can share and use the work, but not for commercial purposes, as long as they give appropriate credit and do not create derivative works."
+      },
+      {
+        "name": "GNU General Public License (GPL)",
+        "description": "Mainly used for software, this license allows users to share, adapt, and use the work, as long as they distribute their contributions under the same license."
+      },
+      {
+        "name": "MIT License",
+        "description": "A permissive license for software that allows users to use, copy, modify, merge, publish, distribute, sublicense, and sell the software, as long as the copyright notice and permission notice are included in all copies or substantial portions of the software."
+      },
+      {
+        "name": "Apache License 2.0",
+        "description": "A permissive license for software that allows users to use, copy, modify, and distribute the work, as long as they include the copyright notice, the license text, and any applicable attribution notices."
+      },
+      {
+        "name": "Custom License",
+        "description": "You can create a custom license specific to your work's requirements, defining the terms and conditions under which the work can be used, shared, and adapted."
+      }
+    ]
+  }
+}

@@ -677,6 +677,33 @@ name = "Tags"
 url = "/tags/"
 title = ""
 
+[[menu.main]]
+weight = 4
+identifier = "about"
+pre = ""
+post = ""
+name = "About"
+url = "/about/"
+title = ""
+
+[[menu.main]]
+weight = 5
+identifier = "projects"
+pre = ""
+post = ""
+name = "Projects"
+url = "/projects/"
+title = ""
+
+[[menu.main]]
+weight = 6
+identifier = "snippets"
+pre = ""
+post = ""
+name = "Snippets"
+url = "/snippets/"
+title = ""
+
 # Markup related configuration in Hugo
 [markup]
 

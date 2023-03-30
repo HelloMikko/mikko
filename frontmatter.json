@@ -7,14 +7,10 @@
       "previewPath": null,
       "fields": [
         {
-          "title": "Title",
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "title": "Description",
-          "name": "description",
-          "type": "string"
+          "title": "Weight",
+          "name": "weight",
+          "type": "number",
+          "default": "1"
         },
         {
           "title": "Publishing date",
@@ -24,14 +20,39 @@
           "isPublishDate": true
         },
         {
-          "title": "Content preview",
-          "name": "preview",
-          "type": "image"
+          "title": "Title",
+          "name": "title",
+          "type": "string",
+          "default": "lorem lipson"
+        },
+        {
+          "title": "Summery",
+          "name": "summery",
+          "type": "string",
+          "default": "lorem lipson"
         },
         {
           "title": "Is in draft",
           "name": "draft",
-          "type": "draft"
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "title": "Author",
+          "name": "author",
+          "type": "string",
+          "default": "Mikko"
+        },
+        {
+          "title": "Author Link",
+          "name": "authorLink",
+          "type": "string",
+          "default": "https://mikko.codes"
+        },
+        {
+          "title": "Categories",
+          "name": "categories",
+          "type": "categories"
         },
         {
           "title": "Tags",
@@ -39,9 +60,90 @@
           "type": "tags"
         },
         {
-          "title": "Categories",
-          "name": "categories",
-          "type": "categories"
+          "title": "Resources",
+          "name": "resources",
+          "type": "list"
+        },
+        {
+          "title": "Lightgallery",
+          "name": "lightgallery",
+          "type": "boolean",
+          "default": true
+        },
+        {
+          "title": "Hero Image",
+          "name": "featuredimage",
+          "type": "image"
+        },
+        {
+          "title": "Images",
+          "name": "images",
+          "type": "list"
+        },
+        {
+          "title": "Divider",
+          "name": "divider",
+          "type": "boolean",
+          "default": "---"
+        },
+        {
+          "title": "Section title",
+          "name": "sectionTitleWithDescription",
+          "description": "This is just a dummy description to test out the field description",
+          "type": "heading"
+        },
+        {
+          "title": "License",
+          "name": "license",
+          "type": "taxonomy",
+          "taxonomyId": "license"
+        },
+        {
+          "title": "Last modified",
+          "name": "lastmod",
+          "type": "datetime",
+          "default": "{{now}}"
+        },
+        {
+          "title": "keywords",
+          "name": "keywords",
+          "type": "list",
+          "choices": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "React",
+            "Vue",
+            "Angular",
+            "jQuery",
+            "Bootstrap",
+            "Sass",
+            "LESS",
+            "Responsive Design",
+            "Web Accessibility",
+            "Progressive Web Apps",
+            "Performance Optimization",
+            "UX Design",
+            "UI Design",
+            "Version Control",
+            "GitHub",
+            "GitLab",
+            "Front-end Frameworks",
+            "API Integration",
+            "Webpack",
+            "Gulp",
+            "Grunt",
+            "npm",
+            "Yarn",
+            "Testing",
+            "Browser Compatibility",
+            "SEO",
+            "Web Components",
+            "CSS Grid",
+            "Tailwind CSS",
+            "Materialwind",
+            "Bootstrap"
+          ]
         }
       ]
     }
@@ -49,51 +151,64 @@
   "frontMatter.framework.id": "hugo",
   "frontMatter.content.publicFolder": "static",
   "frontMatter.taxonomy.tags": [
+    "API Integration",
+    "Angular",
+    "Bootstrap",
+    "Browser Compatibility",
+    "CSS",
+    "CSS Grid",
+    "Front-end Frameworks",
+    "GitHub",
+    "GitLab",
+    "Grunt",
+    "Gulp",
     "HTML",
-    "Markdown",
-    "configuration",
-    "content",
-    "emoji",
-    "installation",
-    "shortcodes"
+    "JavaScript",
+    "LESS",
+    "Material + Tailwind",
+    "Performance Optimization",
+    "Progressive Web Apps",
+    "React",
+    "Responsive Design",
+    "SEO",
+    "Sass",
+    "Tailwind CSS",
+    "Testing",
+    "UI Design",
+    "UX Design",
+    "Version Control",
+    "Vue",
+    "Web Accessibility",
+    "Web Components",
+    "Webpack",
+    "Yarn",
+    "jQuery",
+    "npm"
+  ],
+  "frontMatter.taxonomy.customTaxonomy": [
+    {
+      "id": "license",
+      "options": [
+        "Public Domain (CC0)",
+        "Attribution (CC BY)",
+        "Attribution-ShareAlike (CC BY-SA)",
+        "Attribution-NoDerivs (CC BY-ND)",
+        "Attribution-NonCommercial (CC BY-NC)",
+        "Attribution-NonCommercial-ShareAlike (CC BY-NC-SA)",
+        "MIT License",
+        "Apache License 2.0",
+        "GNU General Public License (GPL)",
+        "Custom License"
+      ]
+    }
   ],
   "frontMatter.taxonomy.categories": [
-    "Markdown",
-    "documentation"
+    "Articles",
+    "Documentation",
+    "Project",
+    "Snippets"
   ],
   "frontMatter.content.snippets": {
-    "Start New Post": {
-      "description": "This example will help start a new post",
-      "body": [
-        "---",
-        "weight: 4",
-        "title: Theme Documentation - Extended Shortcodes",
-        "date: 2020-03-03T16:29:41+08:00",
-        "lastmod: 2023-03-24T09:03:13.186Z",
-        "draft: false",
-        "author: Dillon",
-        "authorLink: https://dillonzq.com",
-        "description: LoveIt theme provides multiple shortcodes on top of built-in ones in Hugo.",
-        "images: []",
-        "resources:",
-        "  - name: featured-image",
-        "    src: featured-image.jpg",
-        "  - name: featured-image-preview",
-        "    src: featured-image-preview.jpg",
-        "",
-        "tags:",
-        "  - shortcodes",
-        "categories:",
-        "  - documentation",
-        "",
-        "lightgallery: true",
-        "",
-        "math:",
-        "  enable: true",
-        "---"
-      ],
-      "fields": []
-    },
     "Version Change": {
       "description": "This example will add a version tag with the version numer in it",
       "body": "{{< version 0.2.0 changed >}}",
@@ -234,7 +349,7 @@
     },
     "Person": {
       "description": "This example will add a person without their avatar",
-      "body": "{{< person \"https://dillonzq.com/\" Dillon \"author of the LoveIt theme\" >}}",
+      "body": "{{< person \"https://mikko.codes/\" Dillon \"author of the MikkoCodes theme\" >}}",
       "fields": []
     },
     "HTML Snippet": {
@@ -253,11 +368,7 @@
     },
     "Gist Box": {
       "description": "This example will add a gist snippet using the url extention",
-      "body": [
-        "```CHANGE LANGUAGE",
-        "{{< gist Nimaear 5e4dee8afbd0e02f3c7b8ad100db7394 >}}",
-        "```"
-      ],
+      "body": "{{< gist codemikko 12f609b70ff7edd47f329c2f683c801d >}}",
       "fields": []
     },
     "Tweet Post": {
@@ -293,17 +404,89 @@
         "````"
       ],
       "fields": []
+    },
+    "Add Badges With Style": {
+      "description": "This example will add an inline style for badges",
+      "body": [
+        "{{< style \"img { height: 1.25rem; }\" >}}",
+        "[![GitHub release (latest by date)](https://img.shields.io/github/v/release/codemikko/mikkocodes/?style=flat-square)](https://github.com/codemikko/mikkocodes//releases)",
+        "[![Hugo](https://img.shields.io/badge/Hugo-%5E0.62.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)",
+        "[![License](https://img.shields.io/github/license/codemikko/mikkocodes/?style=flat-square)](https://github.com/codemikko/mikkocodes//blob/master/LICENSE)",
+        "[![GitHub stars](https://img.shields.io/github/stars/codemikko/mikkocodes/?style=social)](https://github.com/codemikko/mikkocodes/)",
+        "[![GitHub forks](https://img.shields.io/github/forks/codemikko/mikkocodes/?style=social)](https://github.com/codemikko/mikkocodes//fork)",
+        "{{< /style >}}"
+      ],
+      "isMediaSnippet": true
+    },
+    "Adding Inline Style": {
+      "description": "This will add an inline style to your content",
+      "body": [
+        "{{< style >}}",
+        "BLAH BLAH BLAH",
+        "{{< /style >}}"
+      ],
+      "fields": []
+    },
+    "Adding a Banner with Emoji's": {
+      "description": "This example will add a banner with emoji's at the start with content in it",
+      "body": [
+        "{{< style \"img { height: 1.25rem; }\" >}}",
+        "[![GitHub release (latest by date)](https://img.shields.io/github/v/release/codemikko/mikkocodes/?style=flat-square)](https://github.com/codemikko/mikkocodes//releases)",
+        "[![Hugo](https://img.shields.io/badge/Hugo-%5E0.62.0-ff4088?style=flat-square&logo=hugo)](https://gohugo.io/)",
+        "[![License](https://img.shields.io/github/license/codemikko/mikkocodes/?style=flat-square)](https://github.com/codemikko/mikkocodes//blob/master/LICENSE)",
+        "[![GitHub stars](https://img.shields.io/github/stars/codemikko/mikkocodes/?style=social)](https://github.com/codemikko/mikkocodes/)",
+        "[![GitHub forks](https://img.shields.io/github/forks/codemikko/mikkocodes/?style=social)](https://github.com/codemikko/mikkocodes//fork)",
+        "{{< /style >}}",
+        "",
+        "> [:(far fa-kiss-wink-heart fa-fw): MikkoCodes](https://github.com/codemikko/mikkocodes/) is a **clean**, **elegant** but **advanced** blog theme for [Hugo](https://gohugo.io/) developed by {{< person \"https://mikko.codes/\" Dillon \"author of the MikkoCodes theme\" \"/Dillon.png\" >}}.",
+        ">",
+        "> It is based on the original [LeaveIt Theme](https://github.com/liuzc/LeaveIt) and [KeepIt Theme](https://github.com/Fastbyte01/KeepIt)."
+      ],
+      "isMediaSnippet": true
+    },
+    "Raw Codes": {
+      "description": "When adding a raw code to display it such as showing a demo use:",
+      "body": [
+        "{{< raw >}}",
+        "Add HTML Embeds here",
+        "{{< /raw >}}"
+      ],
+      "isMediaSnippet": true,
+      "fields": []
     }
   },
   "frontMatter.content.pageFolders": [
     {
-      "title": "content",
+      "title": "default",
       "path": "[[workspace]]/content",
       "originalPath": "[[workspace]]/content"
     },
     {
+      "title": "about",
+      "path": "[[workspace]]/content/about",
+      "originalPath": "[[workspace]]/content/about"
+    },
+    {
+      "title": "documentation",
+      "path": "[[workspace]]/content/categories/documentation",
+      "originalPath": "[[workspace]]/content/categories/documentation"
+    },
+    {
+      "title": "posts",
+      "path": "[[workspace]]/content/posts",
+      "originalPath": "[[workspace]]/content/posts"
+    },
+    {
+      "title": "projects",
+      "path": "[[workspace]]/content/projects",
+      "originalPath": "[[workspace]]/content/projects"
+    },
+    {
       "title": "snippets",
-      "path": "[[workspace]]/content/categories/snippets"
+      "path": "[[workspace]]/content/snippets",
+      "originalPath": "[[workspace]]/content/snippets"
     }
-  ]
+  ],
+  "frontMatter.content.autoUpdateDate": true,
+  "frontMatter.experimental": true
 }
